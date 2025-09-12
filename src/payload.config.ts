@@ -7,6 +7,10 @@ import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 import sharp from 'sharp'
 
+// Globals
+import { Header } from './globals/Header'
+
+// Collections
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
 
@@ -21,6 +25,7 @@ export default buildConfig({
     },
   },
   collections: [Users, Media],
+  globals: [Header],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
