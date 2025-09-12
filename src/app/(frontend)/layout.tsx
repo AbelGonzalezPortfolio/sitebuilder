@@ -18,14 +18,10 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
     slug: 'header'
   })
 
-  console.log(header)
-
   return (
     <html lang="en">
       <body>
-        <header>
-          <Header {...header} />
-        </header>
+        <Header {...header} />
         <main>{children}</main>
       </body>
     </html>
