@@ -14,14 +14,14 @@ export const metadata = {
 export default async function RootLayout(props: { children: React.ReactNode }) {
   const { children } = props
   const payload = await getPayload({ config })
-  const header = await payload.findGlobal({
+  const headerConfig = await payload.findGlobal({
     slug: 'header'
   })
 
   return (
     <html lang="en">
       <body>
-        <Header {...header} />
+        <Header {...headerConfig} />
         <main>{children}</main>
       </body>
     </html>

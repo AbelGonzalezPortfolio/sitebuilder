@@ -296,6 +296,16 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
 export interface Header {
   id: number;
   siteName: string;
+  navbar?:
+    | {
+        type?: ('Internal' | 'Custom') | null;
+        openInNewTab?: boolean | null;
+        url?: string | null;
+        internalPage?: (number | null) | Media;
+        label?: string | null;
+        id?: string | null;
+      }[]
+    | null;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -305,6 +315,16 @@ export interface Header {
  */
 export interface HeaderSelect<T extends boolean = true> {
   siteName?: T;
+  navbar?:
+    | T
+    | {
+        type?: T;
+        openInNewTab?: T;
+        url?: T;
+        internalPage?: T;
+        label?: T;
+        id?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
