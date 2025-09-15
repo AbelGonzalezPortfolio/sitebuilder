@@ -24,7 +24,10 @@ export const Header: GlobalConfig = {
             },
             {
               name: 'openInNewTab',
-              type: 'checkbox'
+              type: 'checkbox',
+              admin: {
+                style: { alignSelf: "flex-end" }
+              }
             }
           ]
         },
