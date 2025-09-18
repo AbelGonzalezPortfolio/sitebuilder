@@ -3,7 +3,7 @@ import './styles.css'
 
 import { getPayload } from 'payload'
 import config from '@/payload.config'
-import Header from '@/components/Header'
+import Header from '@/app/(frontend)/components/Header'
 
 
 export const metadata = {

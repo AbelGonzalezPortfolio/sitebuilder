@@ -7,7 +7,8 @@ export default function NavbarItem(navbarItem: Header["navbar"][0]) {
     if (navbarItem.type === 'Custom' && typeof (navbarItem.url) === 'string') {
       return navbarItem.url
     } else if (navbarItem.type === "Internal" && navbarItem.internalPage && typeof navbarItem.internalPage !== 'number') {
-      return navbarItem.internalPage.url
+      const pageID = navbarItem.internalPage.value.id
+      return `/${pageID}`
     }
     else {
       return '/this-is-a-random-page-return-404'

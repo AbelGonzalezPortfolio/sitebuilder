@@ -51,8 +51,9 @@ export const Header: GlobalConfig = {
             {
               name: 'internalPage',
               type: 'relationship',
-              relationTo: 'media',
+              relationTo: ['pages'],
               admin: {
+
                 condition: (data, { type }) => {
                   if (type === 'Internal') {
                     return true
@@ -60,6 +61,7 @@ export const Header: GlobalConfig = {
                     return false
                   }
                 }
+
               }
             },
             {
