@@ -60,7 +60,8 @@ export const Header: GlobalConfig = {
                   } else {
                     return false
                   }
-                }
+                },
+
 
               }
             },

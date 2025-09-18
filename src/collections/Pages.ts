@@ -20,7 +20,10 @@ const Pages: CollectionConfig = {
         }
       ]
     }
-  ]
+  ],
+  admin: {
+    useAsTitle: 'title'
+  }
 
 }
 
