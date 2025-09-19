@@ -1,8 +1,8 @@
-import { getPayload } from "payload"
+import { getPayload } from 'payload'
 
 import config from '@/payload.config'
-import { notFound } from "next/navigation"
-
+import { notFound } from 'next/navigation'
+import Hero from '../components/blocks/Hero'
 
 export default async function Page(props: PageProps<'/[id]'>) {
   const payload = await getPayload({ config })
@@ -13,14 +13,18 @@ export default async function Page(props: PageProps<'/[id]'>) {
     const pageData = await payload.findByID({
       collection: 'pages',
       id: id,
-      overrideAccess: false
+      overrideAccess: false,
     })
+
+    console.log(pageData)
     return (
-      <h1 className="text-5xl font-bold">{pageData.title}</h1>
+      <div>
+        {pageData.Content?.map((block) => {
+          if (block.blockType === 'hero') return <Hero {...block} />
+        })}
+      </div>
     )
   } catch (err) {
     return notFound()
   }
-
-
 }
