@@ -171,6 +171,7 @@ export interface Page {
   title: string;
   Content?:
     | {
+        backgroundImage?: (number | null) | Media;
         content?: {
           root: {
             type: string;
@@ -310,6 +311,7 @@ export interface PagesSelect<T extends boolean = true> {
         hero?:
           | T
           | {
+              backgroundImage?: T;
               content?: T;
               id?: T;
               blockName?: T;
