@@ -188,7 +188,7 @@ export interface Page {
         } | null;
         id?: string | null;
         blockName?: string | null;
-        blockType: 'content';
+        blockType: 'hero';
       }[]
     | null;
   slug?: string | null;
@@ -307,7 +307,7 @@ export interface PagesSelect<T extends boolean = true> {
   Content?:
     | T
     | {
-        content?:
+        hero?:
           | T
           | {
               content?: T;
