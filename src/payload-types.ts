@@ -168,7 +168,7 @@ export interface Media {
  */
 export interface Page {
   id: number;
-  title?: string | null;
+  title: string;
   Content?:
     | {
         content?: {
@@ -191,8 +191,11 @@ export interface Page {
         blockType: 'content';
       }[]
     | null;
+  slug?: string | null;
+  description?: string | null;
   updatedAt: string;
   createdAt: string;
+  _status?: ('draft' | 'published') | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -312,8 +315,11 @@ export interface PagesSelect<T extends boolean = true> {
               blockName?: T;
             };
       };
+  slug?: T;
+  description?: T;
   updatedAt?: T;
   createdAt?: T;
+  _status?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -356,14 +362,14 @@ export interface Header {
   siteName: string;
   navbar?:
     | {
-        type?: ('Internal' | 'Custom') | null;
+        type: 'Internal' | 'Custom';
         openInNewTab?: boolean | null;
         url?: string | null;
         internalPage?: {
           relationTo: 'pages';
           value: number | Page;
         } | null;
-        label?: string | null;
+        label: string;
         id?: string | null;
       }[]
     | null;

@@ -20,7 +20,8 @@ export const Header: GlobalConfig = {
             {
               name: 'type',
               type: 'radio',
-              options: ['Internal', 'Custom']
+              options: ['Internal', 'Custom'],
+              required: true
             },
             {
               name: 'openInNewTab',
@@ -46,12 +47,19 @@ export const Header: GlobalConfig = {
                   }
                   return false
                 }
-              }
+              },
+              required: true
             },
             {
               name: 'internalPage',
               type: 'relationship',
               relationTo: ['pages'],
+              filterOptions: ({ relationTo, siblingData }) => {
+                return {
+                  _status: { equals: 'published' }
+                }
+              },
+              required: true,
               admin: {
 
                 condition: (data, { type }) => {
@@ -68,6 +76,7 @@ export const Header: GlobalConfig = {
             {
               name: 'label',
               type: 'text',
+              required: true
             },
           ]
         }
