@@ -29,7 +29,11 @@ export default function Header({ siteName, menu }: HeaderType) {
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
             {menu?.map((value) => {
-              return <NavbarItem {...value} key={value.id} />
+              return (
+                <li>
+                  <NavbarItem {...value} key={value.id} />
+                </li>
+              )
             })}
           </ul>
         </div>
@@ -40,7 +44,11 @@ export default function Header({ siteName, menu }: HeaderType) {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           {menu?.map((value) => {
-            return <NavbarItem key={value.id} {...value} />
+            return (
+              <li>
+                <NavbarItem key={value.id} {...value} />
+              </li>
+            )
           })}
         </ul>
       </div>
