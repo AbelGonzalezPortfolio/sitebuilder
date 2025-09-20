@@ -29,7 +29,6 @@ export default async function Page({
       draft: user && preview ? true : false,
       user: user ? user : undefined,
     })
-    console.log(pageData)
 
     return (
       <div>

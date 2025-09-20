@@ -1,9 +1,14 @@
+import { Footer as FooterConfig } from '@/payload-types'
 import Link from 'next/link'
+import FooterMenu from './FooterMenu'
 
-export default function Footer() {
+export default function Footer({ menus }: FooterConfig) {
   return (
     <footer className="footer sm:footer-horizontal p-10">
-      <nav>
+      {menus?.map((menu) => (
+        <FooterMenu {...menu} />
+      ))}
+      {/* <nav>
         <h6 className="footer-title">Site Navigation</h6>
         <Link href="/" className="link link-hover">
           Home
@@ -38,7 +43,7 @@ export default function Footer() {
         <Link href="/" className="link link-hover">
           Cookie Policy
         </Link>
-      </nav>
+      </nav> */}
     </footer>
   )
 }

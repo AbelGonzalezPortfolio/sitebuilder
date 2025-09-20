@@ -4,7 +4,7 @@ import './styles.css'
 import { getPayload } from 'payload'
 import config from '@/payload.config'
 import Header from '@/app/(frontend)/components/Header'
-import Footer from './components/Footer'
+import Footer from './components/Footer/Footer'
 
 export const metadata = {
   description: 'A blank template using Payload in a Next.js app.',
@@ -17,13 +17,16 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
   const headerConfig = await payload.findGlobal({
     slug: 'header',
   })
+  const footerConfig = await payload.findGlobal({
+    slug: 'footer',
+  })
 
   return (
     <html lang="en">
       <body>
         <Header {...headerConfig} />
         <main>{children}</main>
-        <Footer />
+        <Footer {...footerConfig} />
       </body>
     </html>
   )
