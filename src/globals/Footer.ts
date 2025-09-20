@@ -7,7 +7,7 @@ export const Footer: GlobalConfig = {
     {
       name: 'menus',
       type: 'array',
-      fields: [Menu]
+      fields: [{ type: 'text', name: 'title' }, Menu]
     }
   ]
 }

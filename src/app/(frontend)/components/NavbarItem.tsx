@@ -2,7 +2,7 @@ import { Media } from '@/collections/Media'
 import { Header } from '@/payload-types'
 import Link from 'next/link'
 
-export default function NavbarItem(navbarItem: Header['navbar'][0]) {
+export default function NavbarItem(navbarItem: Header['menu'][0]) {
   const getHref: () => string = () => {
     if (navbarItem.type === 'Custom' && typeof navbarItem.url === 'string') {
       return navbarItem.url

@@ -388,6 +388,7 @@ export interface Footer {
   id: number;
   menus?:
     | {
+        title?: string | null;
         menu?:
           | {
               type: 'Internal' | 'Custom';
@@ -435,6 +436,7 @@ export interface FooterSelect<T extends boolean = true> {
   menus?:
     | T
     | {
+        title?: T;
         menu?:
           | T
           | {
