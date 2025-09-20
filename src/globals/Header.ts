@@ -41,7 +41,6 @@ export const Header: GlobalConfig = {
               defaultValue: 'https://',
               admin: {
                 condition: (data, siblingData) => {
-                  console.log(siblingData.type)
                   if (siblingData.type === 'Custom') {
                     return true
                   }

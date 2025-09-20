@@ -1,7 +1,6 @@
 import { RichText } from '@payloadcms/richtext-lexical/react'
 
 export default function Hero(block) {
-  console.log(block)
   return (
     <div
       className="hero min-h-screen"

@@ -24,6 +24,12 @@ export default buildConfig({
     importMap: {
       baseDir: path.resolve(dirname),
     },
+    livePreview: {
+      collections: ['pages'],
+      url: ({ data }) => {
+        return `http://localhost:3000/${data.id}?preview=true`
+      }
+    }
   },
   collections: [Users, Media, Pages],
   globals: [Header],
