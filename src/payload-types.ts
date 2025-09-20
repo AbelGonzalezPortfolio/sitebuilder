@@ -364,7 +364,7 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
 export interface Header {
   id: number;
   siteName: string;
-  navbar?:
+  menu?:
     | {
         type: 'Internal' | 'Custom';
         openInNewTab?: boolean | null;
@@ -413,7 +413,7 @@ export interface Footer {
  */
 export interface HeaderSelect<T extends boolean = true> {
   siteName?: T;
-  navbar?:
+  menu?:
     | T
     | {
         type?: T;

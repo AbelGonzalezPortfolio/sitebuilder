@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { Header as HeaderType } from '@/payload-types'
 import NavbarItem from './NavbarItem'
 
-export default function Header({ siteName, navbar }: HeaderType) {
+export default function Header({ siteName, menu }: HeaderType) {
   return (
     <header className="navbar bg-base-100 shadow-sm">
       <div className="navbar-start">
@@ -28,10 +28,8 @@ export default function Header({ siteName, navbar }: HeaderType) {
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
-            {navbar?.map((value) => {
-              return (
-                <NavbarItem {...value} key={value.id} />
-              )
+            {menu?.map((value) => {
+              return <NavbarItem {...value} key={value.id} />
             })}
           </ul>
         </div>
@@ -41,10 +39,8 @@ export default function Header({ siteName, navbar }: HeaderType) {
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
-          {navbar?.map((value) => {
-            return (
-              <NavbarItem key={value.id} {...value} />
-            )
+          {menu?.map((value) => {
+            return <NavbarItem key={value.id} {...value} />
           })}
         </ul>
       </div>
