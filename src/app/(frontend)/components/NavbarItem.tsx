@@ -21,7 +21,11 @@ export default function NavbarItem(navbarItem: Header['navbar'][0]) {
   const href = () => (navbarItem.type === 'Custom' ? navbarItem.url : 'http://localhost:3000')
 
   return (
-    <Link href={getHref()} target={navbarItem.openInNewTab ? '_blank' : ''}>
+    <Link
+      href={getHref()}
+      target={navbarItem.openInNewTab ? '_blank' : ''}
+      className={navbarItem.className}
+    >
       {navbarItem.label}
     </Link>
   )
