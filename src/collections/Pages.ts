@@ -1,4 +1,5 @@
 import Hero from "@/blocks/Hero";
+import { SEO } from "@/tabs/SEO";
 import { CollectionConfig } from "payload";
 
 const Pages: CollectionConfig = {
@@ -39,16 +40,7 @@ const Pages: CollectionConfig = {
           }]
 
         },
-        {
-          label: 'SEO',
-          fields: [{
-            type: 'text',
-            name: 'slug'
-          }, {
-            type: 'textarea',
-            name: 'description'
-          }]
-        }
+        SEO
       ]
     },
 
