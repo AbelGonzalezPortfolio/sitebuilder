@@ -176,7 +176,7 @@ export interface Page {
   id: number;
   title: string;
   Content?: HeroBlock[] | null;
-  slug?: string | null;
+  slug: string;
   description?: string | null;
   updatedAt: string;
   createdAt: string;
@@ -241,7 +241,7 @@ export interface Post {
       [k: string]: unknown;
     } | null;
   };
-  slug?: string | null;
+  slug: string;
   description?: string | null;
   updatedAt: string;
   createdAt: string;

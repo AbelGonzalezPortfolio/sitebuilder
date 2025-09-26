@@ -1,6 +1,7 @@
-import Hero from "@/blocks/Hero";
-import { SEO } from "@/tabs/SEO";
-import { CollectionConfig } from "payload";
+import Hero from '@/blocks/Hero'
+import { SEO } from '@/tabs/SEO'
+import { CollectionConfig } from 'payload'
+import { slugifyTitleHook } from '@/hooks'
 
 const Pages: CollectionConfig = {
   slug: 'pages',
@@ -17,7 +18,7 @@ const Pages: CollectionConfig = {
   },
   versions: {
     drafts: {
-      autosave: true
+      autosave: true,
     },
   },
   fields: [
@@ -26,29 +27,29 @@ const Pages: CollectionConfig = {
       tabs: [
         {
           label: 'Content',
-          fields: [{
-            name: 'title',
-            type: 'text',
-            required: true
-          },
-          {
-            name: 'Content',
-            type: 'blocks',
-            blocks: [
-              Hero
-            ]
-          }]
-
+          fields: [
+            {
+              name: 'title',
+              type: 'text',
+              required: true,
+              hooks: {
+                beforeChange: [({ data }) => slugifyTitleHook({ data })],
+              },
+            },
+            {
+              name: 'Content',
+              type: 'blocks',
+              blocks: [Hero],
+            },
+          ],
         },
-        SEO
-      ]
+        SEO,
+      ],
     },
-
   ],
   admin: {
-    useAsTitle: 'title'
-  }
-
+    useAsTitle: 'title',
+  },
 }
 
 export default Pages

@@ -1,11 +1,11 @@
-import { SEO } from "@/tabs/SEO"
-import { CollectionConfig } from "payload"
+import { SEO } from '@/tabs/SEO'
+import { CollectionConfig } from 'payload'
 
 export const Posts: CollectionConfig = {
   versions: {
     drafts: {
-      autosave: true
-    }
+      autosave: true,
+    },
   },
   slug: 'posts',
   fields: [
@@ -13,22 +13,21 @@ export const Posts: CollectionConfig = {
       type: 'tabs',
       tabs: [
         {
-          name: 'Content', fields: [
+          name: 'Content',
+          fields: [
             {
               type: 'text',
-              name: 'title'
+              name: 'title',
             },
             {
               type: 'richText',
-              name: 'Content'
-            }
-          ]
+              name: 'Content',
+            },
+          ],
         },
-        SEO
-      ]
-    }
-    ,
-
+        SEO,
+      ],
+    },
   ],
   // admin: {
   //   useAsTitle: 'title'

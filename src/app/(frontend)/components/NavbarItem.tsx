@@ -11,8 +11,8 @@ export default function NavbarItem(navbarItem: Header['menu'][0]) {
       navbarItem.internalPage &&
       typeof navbarItem.internalPage !== 'number'
     ) {
-      const pageID = navbarItem.internalPage.value.id
-      return `/${pageID}`
+      const slug = navbarItem.internalPage.value.slug
+      return `/${slug}`
     } else {
       return '/this-is-a-random-page-return-404'
     }

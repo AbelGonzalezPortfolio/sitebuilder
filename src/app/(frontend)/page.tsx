@@ -19,7 +19,7 @@ export default async function HomePage() {
   const fileURL = `vscode://file/${fileURLToPath(import.meta.url)}`
 
   if (homePage) {
-    redirect(`/${homePage.value.id}`)
+    redirect(`/${homePage.value.slug}`)
   } else {
     return <div>Home Page not set</div>
   }
