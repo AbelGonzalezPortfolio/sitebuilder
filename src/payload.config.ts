@@ -16,6 +16,7 @@ import { Media } from './collections/Media'
 import Pages from './collections/Pages'
 import { Footer } from './globals/Footer'
 import { Posts } from './collections/Posts'
+import { Site } from './globals/Site'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -30,11 +31,11 @@ export default buildConfig({
       collections: ['pages'],
       url: ({ data }) => {
         return `http://localhost:3000/${data.id}?preview=true`
-      }
-    }
+      },
+    },
   },
   collections: [Users, Media, Pages, Posts],
-  globals: [Header, Footer],
+  globals: [Header, Footer, Site],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
