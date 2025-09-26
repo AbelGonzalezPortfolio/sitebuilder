@@ -30,7 +30,7 @@ export default buildConfig({
     livePreview: {
       collections: ['pages'],
       url: ({ data }) => {
-        return `http://localhost:3000/${data.id}?preview=true`
+        return `http://localhost:3000/${data.slug}?preview=true`
       },
     },
   },

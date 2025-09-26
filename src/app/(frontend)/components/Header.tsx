@@ -30,7 +30,7 @@ export default function Header({ siteName, menu }: HeaderType) {
           >
             {menu?.map((value) => {
               return (
-                <li>
+                <li key={value.id}>
                   <NavbarItem {...value} key={value.id} />
                 </li>
               )
@@ -45,7 +45,7 @@ export default function Header({ siteName, menu }: HeaderType) {
         <ul className="menu menu-horizontal px-1">
           {menu?.map((value) => {
             return (
-              <li>
+              <li key={value.id}>
                 <NavbarItem key={value.id} {...value} />
               </li>
             )
