@@ -6,7 +6,7 @@ import { notFound } from 'next/navigation'
 import Hero from '../components/blocks/Hero'
 
 import { headers as nextHeaders } from 'next/headers'
-import { equal } from 'assert'
+import { getPageBySlug } from '../utils'
 
 export default async function Page({
   params,
@@ -22,22 +22,8 @@ export default async function Page({
   const { preview } = await searchParams
   const { user } = await payload.auth({ headers })
 
-  const getPageBySlug = async (slug: string) => {
-    const pageData = await payload.find({
-      collection: 'pages',
-      where: { slug: { equals: slug } },
-      limit: 1,
-      pagination: false,
-      overrideAccess: false,
-      draft: user && preview ? true : false,
-      user: user ? user : undefined,
-    })
-
-    return pageData?.docs[0]
-  }
-
   try {
-    const pageData = await getPageBySlug(slug)
+    const pageData = await getPageBySlug({ slug, isPreview: preview === 'true' })
 
     return (
       <div>

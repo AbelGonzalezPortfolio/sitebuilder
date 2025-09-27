@@ -2,11 +2,15 @@ import { getPayload } from 'payload'
 import config from '@/payload.config'
 import { RichText } from '@payloadcms/richtext-lexical/react'
 
-export default async function Post({ params }: { params: Promise<{ id: number }> }) {
+export default async function Post({ params }: { params: Promise<{ slug: string }> }) {
   const payload = await getPayload({ config })
-  const { id } = await params
+  const { slug } = await params
 
-  const postData = await payload.findByID({ collection: 'posts', id: id })
+  const postData = await payload.find({
+    collection: 'posts',
+    pagination: false,
+    where: { slug: { equals: slug } },
+  })
   console.log(postData)
 
   return (
