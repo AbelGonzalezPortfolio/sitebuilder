@@ -223,24 +223,22 @@ export interface HeroBlock {
  */
 export interface Post {
   id: number;
+  title: string;
   Content?: {
-    title?: string | null;
-    Content?: {
-      root: {
+    root: {
+      type: string;
+      children: {
         type: string;
-        children: {
-          type: string;
-          version: number;
-          [k: string]: unknown;
-        }[];
-        direction: ('ltr' | 'rtl') | null;
-        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-        indent: number;
         version: number;
-      };
-      [k: string]: unknown;
-    } | null;
-  };
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
   slug: string;
   description?: string | null;
   updatedAt: string;
@@ -386,12 +384,8 @@ export interface HeroBlockSelect<T extends boolean = true> {
  * via the `definition` "posts_select".
  */
 export interface PostsSelect<T extends boolean = true> {
-  Content?:
-    | T
-    | {
-        title?: T;
-        Content?: T;
-      };
+  title?: T;
+  Content?: T;
   slug?: T;
   description?: T;
   updatedAt?: T;

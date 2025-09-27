@@ -1,5 +1,6 @@
 import { SEO } from '@/tabs/SEO'
 import { CollectionConfig } from 'payload'
+import { slugifyTitleHook } from '@/hooks'
 
 export const Posts: CollectionConfig = {
   versions: {
@@ -13,11 +14,13 @@ export const Posts: CollectionConfig = {
       type: 'tabs',
       tabs: [
         {
-          name: 'Content',
+          label: 'Content',
           fields: [
             {
               type: 'text',
               name: 'title',
+              required: true,
+              hooks: { beforeChange: [({ data }) => slugifyTitleHook({ data })] },
             },
             {
               type: 'richText',
@@ -29,7 +32,7 @@ export const Posts: CollectionConfig = {
       ],
     },
   ],
-  // admin: {
-  //   useAsTitle: 'title'
-  // },
+  admin: {
+    useAsTitle: 'title',
+  },
 }
