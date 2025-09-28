@@ -1,6 +1,8 @@
 import { Block } from 'payload'
 
-export const PostListBlock: Block = {
+const PostList: Block = {
   slug: 'postList',
   fields: [],
 }
+
+export default PostList

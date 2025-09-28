@@ -2,7 +2,7 @@ import Hero from '@/blocks/Hero'
 import { SEO } from '@/tabs/SEO'
 import { CollectionConfig } from 'payload'
 import { slugifyTitleHook } from '@/hooks'
-import { PostListBlock } from '@/blocks/PostList'
+import PostListBlock from '@/blocks/PostList'
 
 const Pages: CollectionConfig = {
   slug: 'pages',

@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 import Hero from './blocks/Hero'
-import { PostList } from './blocks/PostList'
+import PostList from './blocks/PostList'
 import { Block } from 'payload'
 
 import type { Page } from '@/payload-types'

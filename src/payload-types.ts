@@ -233,6 +233,7 @@ export interface HeroBlock {
 export interface Post {
   id: number;
   title: string;
+  featuredImage?: (number | null) | Media;
   Content?: {
     root: {
       type: string;
@@ -400,6 +401,7 @@ export interface HeroBlockSelect<T extends boolean = true> {
  */
 export interface PostsSelect<T extends boolean = true> {
   title?: T;
+  featuredImage?: T;
   Content?: T;
   slug?: T;
   description?: T;

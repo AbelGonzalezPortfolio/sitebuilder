@@ -78,9 +78,9 @@ export default async function Page({
           ;<RenderBlock block={block} />
           // if (block.blockType === 'hero') return <Hero key={block.id} {...block} />
         })} */}
-        <div className="max-w-3xl py-5 mx-auto">
+        {/* <div className="max-w-3xl py-5 mx-auto">
           <PostList posts={posts} />
-        </div>
+        </div> */}
       </div>
     )
   } catch (err) {
