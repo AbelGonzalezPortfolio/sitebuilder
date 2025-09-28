@@ -10,8 +10,6 @@ const slugify = (str: string) => {
 
 export const slugifyTitleHook = ({ data }: { data: Partial<any> | undefined }) => {
   if (data?.title) {
-    console.log(data)
     data.slug = slugify(data.title)
-    console.log(data)
   }
 }

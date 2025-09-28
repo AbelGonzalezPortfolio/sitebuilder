@@ -7,7 +7,8 @@ import Hero from '../components/blocks/Hero'
 
 import { headers as nextHeaders } from 'next/headers'
 import { getPageBySlug } from '../utils'
-import { PostList } from '../components/PostList'
+import { PostList } from '../components/blocks/PostList'
+import RenderBlocks from '../components/RenderBlocks'
 
 export default async function Page({
   params,
@@ -53,15 +54,30 @@ export default async function Page({
     },
   ]
 
+  const getRecentPosts = async () => {
+    const posts = await payload.find({
+      collection: 'posts',
+      pagination: false,
+      limit: 10,
+      sort: ['-publishedAt'],
+    })
+
+    console.log('Hello')
+    console.log(posts)
+    return posts
+  }
+
   try {
     const pageData = await getPageBySlug({ slug, isPreview: preview === 'true' })
 
     return (
       <div>
         {preview === 'true' ? <RefreshRouteOnSave /> : null}
-        {pageData.Content?.map((block) => {
-          if (block.blockType === 'hero') return <Hero key={block.id} {...block} />
-        })}
+        <RenderBlocks blocks={pageData.Content} />
+        {/* {pageData.Content?.map((block) => {
+          ;<RenderBlock block={block} />
+          // if (block.blockType === 'hero') return <Hero key={block.id} {...block} />
+        })} */}
         <div className="max-w-3xl py-5 mx-auto">
           <PostList posts={posts} />
         </div>

@@ -1,7 +1,6 @@
 import NavbarItem from '../NavbarItem'
 
 export default function FooterMenu({ title, menu }) {
-  console.log(menu)
   return (
     <nav>
       <h6 className="footer-title">{title}</h6>

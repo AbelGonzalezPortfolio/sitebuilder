@@ -4,13 +4,10 @@ import Link from 'next/link'
 import { HeroBlock } from '@/payload-types'
 
 export default function Hero(block: HeroBlock) {
-  // console.log(block)
   const getCTAUrl = ({ relationTo, value }: HeroBlock['callToAction']) => {
     const root = relationTo === 'pages' ? '' : relationTo
     return `${root}/${value.id}`
   }
-
-  console.log(block.label)
 
   return (
     <div

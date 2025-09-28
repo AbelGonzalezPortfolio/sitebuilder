@@ -175,7 +175,16 @@ export interface Media {
 export interface Page {
   id: number;
   title: string;
-  Content?: HeroBlock[] | null;
+  Content?:
+    | (
+        | HeroBlock
+        | {
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'postList';
+          }
+      )[]
+    | null;
   slug: string;
   description?: string | null;
   updatedAt: string;
@@ -360,6 +369,12 @@ export interface PagesSelect<T extends boolean = true> {
     | T
     | {
         hero?: T | HeroBlockSelect<T>;
+        postList?:
+          | T
+          | {
+              id?: T;
+              blockName?: T;
+            };
       };
   slug?: T;
   description?: T;

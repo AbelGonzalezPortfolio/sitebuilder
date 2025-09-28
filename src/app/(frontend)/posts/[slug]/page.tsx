@@ -11,7 +11,6 @@ export default async function Post({ params }: { params: Promise<{ slug: string 
     pagination: false,
     where: { slug: { equals: slug } },
   })
-  console.log(postData)
 
   return (
     <div>
