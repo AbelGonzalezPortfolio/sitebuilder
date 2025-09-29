@@ -12,7 +12,6 @@ const Hero: Block = {
           type: 'relationship',
           relationTo: ['pages', 'posts'],
           name: 'callToAction',
-          required: true,
         },
         { type: 'text', name: 'label' },
       ],

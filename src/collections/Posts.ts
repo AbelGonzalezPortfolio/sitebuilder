@@ -23,6 +23,7 @@ export const Posts: CollectionConfig = {
               hooks: { beforeChange: [({ data }) => slugifyTitleHook({ data })] },
             },
             { type: 'relationship', relationTo: 'media', name: 'featuredImage' },
+            { type: 'relationship', relationTo: 'categories', name: 'categories' },
             {
               type: 'richText',
               name: 'Content',
