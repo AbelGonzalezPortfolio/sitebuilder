@@ -1,6 +1,8 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+@plugin "@tailwindcss/typography";
 @plugin "daisyui";
 
+/* 
 :root {
   --font-mono: 'Roboto Mono', monospace;
 }
@@ -164,4 +166,4 @@ svg {
       border-radius: 4px;
     }
   }
-}
+} */

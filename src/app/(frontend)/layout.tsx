@@ -22,7 +22,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
   })
 
   return (
-    <html lang="en">
+    <html data-theme="acid" lang="en">
       <body>
         <Header {...headerConfig} />
         <main>{children}</main>

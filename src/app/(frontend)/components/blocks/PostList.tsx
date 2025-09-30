@@ -21,13 +21,13 @@ export default async function PostList(block: Block) {
   }
 
   return (
-    <ul className="list bg-base-100 rounded-box shadow-md max-w-3xl py-5 my-10 mx-auto">
+    <ul className="list bg-base-200 rounded-box shadow-md max-w-3xl py-5 my-10 mx-auto">
       <li className="p-4 pb-2 text-xs opacity-60 tracking-wide">View our recent posts:</li>
       {docs.map((post) => (
-        <Link href={`/posts/${post.slug}`} className="hover:bg-base-300">
+        <Link key={post.id} href={`/posts/${post.slug}`} className="hover:bg-base-300">
           <li className="list-row">
             <div>
-              <img className="size-50 rounded-box" src={post.featuredImage?.url} />
+              <img className="size-40 object-cover rounded-box" src={post.featuredImage?.url} />
             </div>
             <div className="flex flex-col">
               <div className="text-xs uppercase opacity-80 badge badge-secondary badge-outline font-semibold">

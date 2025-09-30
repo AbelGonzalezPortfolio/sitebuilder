@@ -18,9 +18,12 @@ export default function Hero(block: HeroBlock) {
     >
       <div className="hero-overlay"></div>
       <div className="hero-content text-center">
-        <div className="max-w-md">
-          <RichText data={block.content} />
-          <Link className="btn btn-primary" href={getCTAUrl(block.callToAction)}>
+        <div className="max-w-xl">
+          <RichText data={block.content} className="prose !prose-invert prose-xl" />
+          <Link
+            className="btn btn-primary my-5 text-xl btn-xl"
+            href={getCTAUrl(block.callToAction)}
+          >
             {block.label}
           </Link>
           {/* <Link href={block}/> */}
