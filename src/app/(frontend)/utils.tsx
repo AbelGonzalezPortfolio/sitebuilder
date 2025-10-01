@@ -1,4 +1,4 @@
-import { getPayload } from 'payload'
+import { getPayload, PaginatedDocs } from 'payload'
 import config from '@/payload.config'
 import { headers as nextHeaders } from 'next/headers'
 
@@ -13,7 +13,7 @@ export const getPageBySlug = async ({
   const payload = await getPayload({ config })
 
   const { user } = await payload.auth({ headers })
-  const pageData = await payload.find({
+  const pageData: PaginatedDocs = await payload.find({
     collection: 'pages',
     where: { slug: { equals: slug } },
     limit: 1,

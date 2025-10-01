@@ -29,9 +29,14 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
     livePreview: {
-      collections: ['pages'],
-      url: ({ data }) => {
-        return `http://localhost:3000/${data.slug}?preview=true`
+      collections: ['pages', 'posts'],
+      url: ({ data, collectionConfig }) => {
+        console.log(collectionConfig?.slug)
+        if (collectionConfig?.slug === 'posts') {
+          return `http://localhost:3000/posts/${data.slug}?preview=true`
+        } else {
+          return `http://localhost:3000/${data.slug}?preview=true`
+        }
       },
     },
   },
