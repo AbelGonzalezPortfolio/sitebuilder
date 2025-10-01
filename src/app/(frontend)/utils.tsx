@@ -2,11 +2,13 @@ import { getPayload, PaginatedDocs } from 'payload'
 import config from '@/payload.config'
 import { headers as nextHeaders } from 'next/headers'
 
-export const getPageBySlug = async ({
+export const getCollectionBySlug = async ({
   slug,
+  collection,
   isPreview = false,
 }: {
   slug: string
+  collection: 'pages' | 'posts'
   isPreview: boolean
 }) => {
   const headers = await nextHeaders()
@@ -14,7 +16,7 @@ export const getPageBySlug = async ({
 
   const { user } = await payload.auth({ headers })
   const pageData: PaginatedDocs = await payload.find({
-    collection: 'pages',
+    collection: collection,
     where: { slug: { equals: slug } },
     limit: 1,
     pagination: false,

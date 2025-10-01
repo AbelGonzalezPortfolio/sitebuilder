@@ -6,7 +6,7 @@ import { notFound } from 'next/navigation'
 import Hero from '../components/blocks/Hero'
 
 import { headers as nextHeaders } from 'next/headers'
-import { getPageBySlug } from '../utils'
+import { getCollectionBySlug } from '../utils'
 import RenderBlocks from '../components/RenderBlocks'
 
 export default async function Page({
@@ -24,7 +24,11 @@ export default async function Page({
   const { user } = await payload.auth({ headers })
 
   try {
-    const pageData = await getPageBySlug({ slug, isPreview: preview === 'true' })
+    const pageData = await getCollectionBySlug({
+      slug,
+      collection: 'pages',
+      isPreview: preview === 'true',
+    })
 
     return (
       <div>

@@ -3,6 +3,7 @@ import config from '@/payload.config'
 import { RichText } from '@payloadcms/richtext-lexical/react'
 import { Post } from '@/payload-types'
 import { RefreshRouteOnSave } from '../../RefreshRouteOnSave'
+import { getCollectionBySlug } from '../../utils'
 
 export default async function Post({
   params,
@@ -15,14 +16,20 @@ export default async function Post({
   const { slug } = await params
   const { preview } = await searchParams
 
-  const postData: PaginatedDocs = await payload.find({
+  const post = await getCollectionBySlug({
+    slug,
     collection: 'posts',
-    pagination: false,
-    limit: 1,
-    where: { slug: { equals: slug } },
+    isPreview: preview === 'true',
   })
 
-  const post = postData.docs[0]
+  // const postData: PaginatedDocs = await payload.find({
+  //   collection: 'posts',
+  //   pagination: false,
+  //   limit: 1,
+  //   where: { slug: { equals: slug } },
+  // })
+
+  // const post = postData.docs[0]
   console.log(post)
 
   return (
