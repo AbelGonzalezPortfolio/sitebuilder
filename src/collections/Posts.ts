@@ -5,7 +5,9 @@ import { slugifyTitleHook } from '@/hooks'
 export const Posts: CollectionConfig = {
   versions: {
     drafts: {
-      autosave: true,
+      autosave: {
+        interval: 375,
+      },
     },
   },
   slug: 'posts',
