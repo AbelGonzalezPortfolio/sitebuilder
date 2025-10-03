@@ -22,7 +22,7 @@ export const Carousel: ({ medias, id }: CarouselBlock) => ReactNode = ({ medias,
   }
 
   return (
-    <div className="carousel w-full h-[500px]">
+    <div className="carousel w-full h-full">
       {medias?.map((media, index) => (
         <div key={media.id} id={`slide${index}`} className="carousel-item relative w-full">
           <img src={media?.media?.url} className="w-full object-cover" />

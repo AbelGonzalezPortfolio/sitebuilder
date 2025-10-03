@@ -196,6 +196,7 @@ export interface Page {
                             blockName?: string | null;
                             blockType: 'postList';
                           }
+                        | CarouselBlock
                       )[]
                     | null;
                   id?: string | null;
@@ -445,6 +446,7 @@ export interface PagesSelect<T extends boolean = true> {
                                 id?: T;
                                 blockName?: T;
                               };
+                          carousel?: T | CarouselBlockSelect<T>;
                         };
                     id?: T;
                   };

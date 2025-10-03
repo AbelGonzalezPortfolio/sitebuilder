@@ -1,6 +1,7 @@
 import { Block, FieldHook } from 'payload'
 import Hero from './Hero'
 import PostList from './PostList'
+import { Carousel } from './Carousel'
 
 // const updateColumnsWidthsArrayHook: FieldHook<any, any, any> = ({ data }) => {
 //   const columnsTotal = data?.Content.width.columnsTotal
@@ -20,7 +21,7 @@ export const Columns: Block = {
       type: 'array',
       name: 'columns',
       label: 'Columns',
-      fields: [{ type: 'blocks', name: 'content', blocks: [Hero, PostList] }],
+      fields: [{ type: 'blocks', name: 'content', blocks: [Hero, PostList, Carousel] }],
     },
   ],
 }
