@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import RenderBlocks from '@/components/RenderBlocks'
+import RenderBlocks from '@/blocks/RenderBlocks'
 import type { ColumnsBlock, PostListBlock, HeroBlock, CarouselBlock } from '@/payload-types'
 
 export const Columns: ({ columns }: ColumnsBlock) => ReactNode = ({ columns }) => {

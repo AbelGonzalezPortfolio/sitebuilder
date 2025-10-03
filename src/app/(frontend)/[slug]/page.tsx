@@ -7,7 +7,7 @@ import Hero from '../../../blocks/Hero'
 
 import { headers as nextHeaders } from 'next/headers'
 import { getCollectionBySlug } from '../utils'
-import RenderBlocks from '../../../components/RenderBlocks'
+import RenderBlocks from '../../../blocks/RenderBlocks'
 
 export default async function Page({
   params,

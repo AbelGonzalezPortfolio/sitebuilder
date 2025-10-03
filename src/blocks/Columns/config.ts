@@ -1,6 +1,6 @@
 import { Block, FieldHook } from 'payload'
 import Hero from '../Hero/config'
-import PostList from '../PostList'
+import PostList from '../PostList/config'
 import { Carousel } from '../Carousel/config'
 
 // const updateColumnsWidthsArrayHook: FieldHook<any, any, any> = ({ data }) => {

@@ -1,11 +1,11 @@
 import { ReactNode } from 'react'
 import Hero from '@/blocks/Hero'
-import PostList from './blocks/PostList'
+import PostList from './PostList'
 import { Block } from 'payload'
 
 import type { Page } from '@/payload-types'
 import { Columns } from '@/blocks/Columns'
-import { Carousel } from '../blocks/Carousel'
+import { Carousel } from './Carousel'
 import type { ColumnsBlock, PostListBlock, HeroBlock, CarouselBlock } from '@/payload-types'
 
 export default function RenderBlocks({

@@ -2,7 +2,7 @@ import Hero from '@/blocks/Hero/config'
 import { SEO } from '@/tabs/SEO'
 import { CollectionConfig } from 'payload'
 import { slugifyTitleHook } from '@/hooks'
-import PostListBlock from '@/blocks/PostList'
+import PostListBlock from '@/blocks/PostList/config'
 import { Columns } from '@/blocks/Columns/config'
 import { Carousel } from '@/blocks/Carousel/config'
 
