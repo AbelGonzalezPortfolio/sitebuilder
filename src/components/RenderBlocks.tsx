@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import Hero from './blocks/Hero'
+import Hero from '@/blocks/Hero'
 import PostList from './blocks/PostList'
 import { Block } from 'payload'
 

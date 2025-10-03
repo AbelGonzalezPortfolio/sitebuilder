@@ -1,5 +1,5 @@
 import { Block, FieldHook } from 'payload'
-import Hero from './Hero'
+import Hero from './Hero/config'
 import PostList from './PostList'
 import { Carousel } from './Carousel'
 

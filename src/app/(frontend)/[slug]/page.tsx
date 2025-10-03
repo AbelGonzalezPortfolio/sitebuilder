@@ -3,11 +3,11 @@ import { RefreshRouteOnSave } from '../RefreshRouteOnSave'
 
 import config from '@/payload.config'
 import { notFound } from 'next/navigation'
-import Hero from '../components/blocks/Hero'
+import Hero from '../../../blocks/Hero'
 
 import { headers as nextHeaders } from 'next/headers'
 import { getCollectionBySlug } from '../utils'
-import RenderBlocks from '../components/RenderBlocks'
+import RenderBlocks from '../../../components/RenderBlocks'
 
 export default async function Page({
   params,

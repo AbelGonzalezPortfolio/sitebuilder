@@ -3,8 +3,8 @@ import './styles.css'
 
 import { getPayload } from 'payload'
 import config from '@/payload.config'
-import Header from '@/app/(frontend)/components/Header'
-import Footer from './components/Footer/Footer'
+import Header from '@/components/Header'
+import Footer from '../../components/Footer/Footer'
 
 export const metadata = {
   description: 'A blank template using Payload in a Next.js app.',
