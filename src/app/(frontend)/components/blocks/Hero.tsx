@@ -11,13 +11,13 @@ export default function Hero(block: HeroBlock) {
 
   return (
     <div
-      className="hero min-h-screen"
+      className="hero"
       style={{
         backgroundImage: `url(${block.backgroundImage?.url})`,
       }}
     >
       <div className="hero-overlay"></div>
-      <div className="hero-content text-center">
+      <div className="hero-content text-center py-20">
         <div className="max-w-xl">
           <RichText data={block.content} className="prose !prose-invert prose-xl" />
           <Link
