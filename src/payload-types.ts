@@ -177,38 +177,7 @@ export interface Media {
 export interface Page {
   id: number;
   title: string;
-  Content?:
-    | (
-        | HeroBlock
-        | {
-            id?: string | null;
-            blockName?: string | null;
-            blockType: 'postList';
-          }
-        | {
-            columns?:
-              | {
-                  content?:
-                    | (
-                        | HeroBlock
-                        | {
-                            id?: string | null;
-                            blockName?: string | null;
-                            blockType: 'postList';
-                          }
-                        | CarouselBlock
-                      )[]
-                    | null;
-                  id?: string | null;
-                }[]
-              | null;
-            id?: string | null;
-            blockName?: string | null;
-            blockType: 'columns';
-          }
-        | CarouselBlock
-      )[]
-    | null;
+  Content?: (HeroBlock | PostListBlock | ColumnsBlock | CarouselBlock)[] | null;
   slug: string;
   description?: string | null;
   updatedAt: string;
@@ -289,6 +258,30 @@ export interface Category {
   title?: string | null;
   updatedAt: string;
   createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "PostListBlock".
+ */
+export interface PostListBlock {
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'postList';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ColumnsBlock".
+ */
+export interface ColumnsBlock {
+  columns?:
+    | {
+        content: (HeroBlock | PostListBlock | CarouselBlock)[];
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'columns';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -424,35 +417,8 @@ export interface PagesSelect<T extends boolean = true> {
     | T
     | {
         hero?: T | HeroBlockSelect<T>;
-        postList?:
-          | T
-          | {
-              id?: T;
-              blockName?: T;
-            };
-        columns?:
-          | T
-          | {
-              columns?:
-                | T
-                | {
-                    content?:
-                      | T
-                      | {
-                          hero?: T | HeroBlockSelect<T>;
-                          postList?:
-                            | T
-                            | {
-                                id?: T;
-                                blockName?: T;
-                              };
-                          carousel?: T | CarouselBlockSelect<T>;
-                        };
-                    id?: T;
-                  };
-              id?: T;
-              blockName?: T;
-            };
+        postList?: T | PostListBlockSelect<T>;
+        columns?: T | ColumnsBlockSelect<T>;
         carousel?: T | CarouselBlockSelect<T>;
       };
   slug?: T;
@@ -470,6 +436,34 @@ export interface HeroBlockSelect<T extends boolean = true> {
   content?: T;
   callToAction?: T;
   label?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "PostListBlock_select".
+ */
+export interface PostListBlockSelect<T extends boolean = true> {
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ColumnsBlock_select".
+ */
+export interface ColumnsBlockSelect<T extends boolean = true> {
+  columns?:
+    | T
+    | {
+        content?:
+          | T
+          | {
+              hero?: T | HeroBlockSelect<T>;
+              postList?: T | PostListBlockSelect<T>;
+              carousel?: T | CarouselBlockSelect<T>;
+            };
+        id?: T;
+      };
   id?: T;
   blockName?: T;
 }

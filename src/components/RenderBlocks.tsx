@@ -4,10 +4,15 @@ import PostList from './blocks/PostList'
 import { Block } from 'payload'
 
 import type { Page } from '@/payload-types'
-import { Columns } from './blocks/Columns'
-import { Carousel } from './blocks/Carousel'
+import { Columns } from '@/blocks/Columns'
+import { Carousel } from '../blocks/Carousel'
+import type { ColumnsBlock, PostListBlock, HeroBlock, CarouselBlock } from '@/payload-types'
 
-export default function RenderBlocks({ blocks }: { blocks: Page['Content'] }): ReactNode {
+export default function RenderBlocks({
+  blocks,
+}: {
+  blocks: Array<ColumnsBlock | PostListBlock | HeroBlock | CarouselBlock>
+}): ReactNode {
   const blockComponents = {
     hero: Hero,
     postList: PostList,

@@ -3,8 +3,8 @@ import { SEO } from '@/tabs/SEO'
 import { CollectionConfig } from 'payload'
 import { slugifyTitleHook } from '@/hooks'
 import PostListBlock from '@/blocks/PostList'
-import { Columns } from '@/blocks/Columns'
-import { Carousel } from '@/blocks/Carousel'
+import { Columns } from '@/blocks/Columns/config'
+import { Carousel } from '@/blocks/Carousel/config'
 
 const Pages: CollectionConfig = {
   slug: 'pages',
