@@ -205,6 +205,7 @@ export interface Page {
             blockName?: string | null;
             blockType: 'columns';
           }
+        | CarouselBlock
       )[]
     | null;
   slug: string;
@@ -287,6 +288,21 @@ export interface Category {
   title?: string | null;
   updatedAt: string;
   createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CarouselBlock".
+ */
+export interface CarouselBlock {
+  medias?:
+    | {
+        media?: (number | null) | Media;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'carousel';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -435,6 +451,7 @@ export interface PagesSelect<T extends boolean = true> {
               id?: T;
               blockName?: T;
             };
+        carousel?: T | CarouselBlockSelect<T>;
       };
   slug?: T;
   description?: T;
@@ -451,6 +468,20 @@ export interface HeroBlockSelect<T extends boolean = true> {
   content?: T;
   callToAction?: T;
   label?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CarouselBlock_select".
+ */
+export interface CarouselBlockSelect<T extends boolean = true> {
+  medias?:
+    | T
+    | {
+        media?: T;
+        id?: T;
+      };
   id?: T;
   blockName?: T;
 }

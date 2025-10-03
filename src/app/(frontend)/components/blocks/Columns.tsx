@@ -15,7 +15,6 @@ interface ColumnsBlock {
 }
 
 export const Columns: ({ columns }: { columns: ColumnsBlock[] }) => ReactNode = ({ columns }) => {
-  console.log(columns)
   const count = columns.length
 
   return (

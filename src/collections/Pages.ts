@@ -4,6 +4,7 @@ import { CollectionConfig } from 'payload'
 import { slugifyTitleHook } from '@/hooks'
 import PostListBlock from '@/blocks/PostList'
 import { Columns } from '@/blocks/Columns'
+import { Carousel } from '@/blocks/Carousel'
 
 const Pages: CollectionConfig = {
   slug: 'pages',
@@ -43,7 +44,7 @@ const Pages: CollectionConfig = {
             {
               name: 'Content',
               type: 'blocks',
-              blocks: [Hero, PostListBlock, Columns],
+              blocks: [Hero, PostListBlock, Columns, Carousel],
             },
           ],
         },
