@@ -185,6 +185,26 @@ export interface Page {
             blockName?: string | null;
             blockType: 'postList';
           }
+        | {
+            columns?:
+              | {
+                  content?:
+                    | (
+                        | HeroBlock
+                        | {
+                            id?: string | null;
+                            blockName?: string | null;
+                            blockType: 'postList';
+                          }
+                      )[]
+                    | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'columns';
+          }
       )[]
     | null;
   slug: string;
@@ -390,6 +410,28 @@ export interface PagesSelect<T extends boolean = true> {
         postList?:
           | T
           | {
+              id?: T;
+              blockName?: T;
+            };
+        columns?:
+          | T
+          | {
+              columns?:
+                | T
+                | {
+                    content?:
+                      | T
+                      | {
+                          hero?: T | HeroBlockSelect<T>;
+                          postList?:
+                            | T
+                            | {
+                                id?: T;
+                                blockName?: T;
+                              };
+                        };
+                    id?: T;
+                  };
               id?: T;
               blockName?: T;
             };

@@ -13,7 +13,7 @@ export default function Hero(block: HeroBlock) {
     <div
       className="hero min-h-screen"
       style={{
-        backgroundImage: `url(${block.backgroundImage.url})`,
+        backgroundImage: `url(${block.backgroundImage?.url})`,
       }}
     >
       <div className="hero-overlay"></div>

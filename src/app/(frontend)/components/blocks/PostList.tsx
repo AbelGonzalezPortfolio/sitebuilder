@@ -3,7 +3,6 @@ import { Block, getPayload } from 'payload'
 import config from '@/payload.config'
 
 export default async function PostList(block: Block) {
-  console.log(block)
   const payload = await getPayload({ config })
 
   const { docs } = await payload.find({
@@ -13,15 +12,13 @@ export default async function PostList(block: Block) {
     sort: ['updatedAt'],
   })
 
-  console.log(docs)
-
   const getFormattedDate = (unformattedDate: string) => {
     const formattedDate = new Date(unformattedDate)
     return formattedDate.toDateString()
   }
 
   return (
-    <ul className="list bg-base-200 rounded-box shadow-md max-w-3xl py-5 my-10 mx-auto">
+    <ul className="list rounded-box w-full h-full">
       <li className="p-4 pb-2 text-xs opacity-60 tracking-wide">View our recent posts:</li>
       {docs.map((post) => (
         <Link key={post.id} href={`/posts/${post.slug}`} className="hover:bg-base-300">

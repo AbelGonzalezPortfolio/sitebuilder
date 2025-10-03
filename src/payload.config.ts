@@ -31,13 +31,13 @@ export default buildConfig({
     livePreview: {
       collections: ['pages', 'posts'],
       url: ({ data, collectionConfig }) => {
-        console.log(collectionConfig?.slug)
         if (collectionConfig?.slug === 'posts') {
           return `http://localhost:3000/posts/${data.slug}?preview=true`
         } else {
           return `http://localhost:3000/${data.slug}?preview=true`
         }
       },
+      breakpoints: [{ label: 'Mobile', height: 667, width: 375, name: 'mobile' }],
     },
   },
   collections: [Users, Media, Pages, Posts, Categories],

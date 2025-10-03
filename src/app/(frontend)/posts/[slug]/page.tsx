@@ -30,7 +30,6 @@ export default async function Post({
   // })
 
   // const post = postData.docs[0]
-  console.log(post)
 
   return (
     // <div>Hello</div>
