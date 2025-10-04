@@ -3,8 +3,6 @@ import { ReactNode } from 'react'
 import type { CarouselBlock } from '@/payload-types'
 
 export const Carousel: ({ medias, id }: CarouselBlock) => ReactNode = ({ medias, id }) => {
-  console.log(medias)
-
   const getPrevIndex = (currentIndex: number, arrayLength: number) => {
     if (currentIndex === 0) {
       return arrayLength - 1

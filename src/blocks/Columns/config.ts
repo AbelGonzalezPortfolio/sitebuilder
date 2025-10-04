@@ -3,20 +3,9 @@ import Hero from '../Hero/config'
 import PostList from '../PostList/config'
 import { Carousel } from '../Carousel/config'
 
-// const updateColumnsWidthsArrayHook: FieldHook<any, any, any> = ({ data }) => {
-//   const columnsTotal = data?.Content.width.columnsTotal
-//   console.log(data)
-// }
-
 export const Columns: Block = {
   slug: 'columns',
   fields: [
-    // {
-    //   type: 'number',
-    //   name: 'columnsTotal',
-    //   label: 'Number of columns',
-    //   hooks: { afterChange: [updateColumnsWidthsArrayHook] },
-    // },
     {
       type: 'array',
       name: 'columns',
