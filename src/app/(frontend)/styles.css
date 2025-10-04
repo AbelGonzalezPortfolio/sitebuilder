@@ -1,5 +1,5 @@
 @import 'tailwindcss';
-@import "tw-animate-css";
+@import 'tw-animate-css';
 /* 
 ---break--- */
 @custom-variant dark (&:is(.dark *));
@@ -178,7 +178,6 @@ svg {
 ---break--- */
 
 @theme inline {
-
   --radius-sm: calc(var(--radius) - 4px);
 
   --radius-md: calc(var(--radius) - 2px);
@@ -254,7 +253,6 @@ svg {
 ---break--- */
 
 :root {
-
   --radius: 0.625rem;
 
   --background: oklch(1 0 0);
@@ -324,7 +322,6 @@ svg {
 ---break--- */
 
 .dark {
-
   --background: oklch(0.141 0.005 285.823);
 
   --foreground: oklch(0.985 0 0);
