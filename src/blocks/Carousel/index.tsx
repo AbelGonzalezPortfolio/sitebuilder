@@ -12,8 +12,8 @@ import Image from 'next/image'
 
 export const Carousel: ({ medias, id }: CarouselBlock) => ReactNode = ({ medias, id }) => {
   return (
-    <CarouselComponent className="mx-15 ">
-      <CarouselContent>
+    <CarouselComponent>
+      <CarouselContent className="">
         {medias
           ? medias.map(({ media }, index) => {
               if (media && typeof media === 'object' && 'url' in media && media.url) {
@@ -34,8 +34,8 @@ export const Carousel: ({ medias, id }: CarouselBlock) => ReactNode = ({ medias,
             })
           : 'No media to display'}
       </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
+      <CarouselPrevious className="absolute left-5" />
+      <CarouselNext className="absolute right-5" />
     </CarouselComponent>
   )
 }
