@@ -13,7 +13,7 @@ import Image from 'next/image'
 export const Carousel: ({ medias, id }: CarouselBlock) => ReactNode = ({ medias, id }) => {
   return (
     <CarouselComponent>
-      <CarouselContent className="">
+      <CarouselContent className="h-full">
         {medias
           ? medias.map(({ media }, index) => {
               if (media && typeof media === 'object' && 'url' in media && media.url) {
