@@ -543,7 +543,10 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
  */
 export interface Header {
   id: number;
-  siteName: string;
+  brandName: string;
+  showBrandName?: boolean | null;
+  logo?: (number | null) | Media;
+  showLogo?: boolean | null;
   menu?:
     | {
         type: 'Internal' | 'Custom';
@@ -606,7 +609,10 @@ export interface SiteConfig {
  * via the `definition` "header_select".
  */
 export interface HeaderSelect<T extends boolean = true> {
-  siteName?: T;
+  brandName?: T;
+  showBrandName?: T;
+  logo?: T;
+  showLogo?: T;
   menu?:
     | T
     | {
