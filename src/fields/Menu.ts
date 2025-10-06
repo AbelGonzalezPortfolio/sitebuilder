@@ -1,9 +1,10 @@
-import { Field } from "payload"
+import { Field } from 'payload'
 
 export const Menu: Field = {
   name: 'menu',
   type: 'array',
   label: 'Menu',
+  interfaceName: 'MenuField',
   fields: [
     {
       type: 'row',
@@ -12,16 +13,16 @@ export const Menu: Field = {
           name: 'type',
           type: 'radio',
           options: ['Internal', 'Custom'],
-          required: true
+          required: true,
         },
         {
           name: 'openInNewTab',
           type: 'checkbox',
           admin: {
-            style: { alignSelf: "flex-end" }
-          }
-        }
-      ]
+            style: { alignSelf: 'flex-end' },
+          },
+        },
+      ],
     },
     {
       type: 'row',
@@ -36,9 +37,9 @@ export const Menu: Field = {
                 return true
               }
               return false
-            }
+            },
           },
-          required: true
+          required: true,
         },
         {
           name: 'internalPage',
@@ -46,12 +47,11 @@ export const Menu: Field = {
           relationTo: ['pages'],
           filterOptions: ({ relationTo, siblingData }) => {
             return {
-              _status: { equals: 'published' }
+              _status: { equals: 'published' },
             }
           },
           required: true,
           admin: {
-
             condition: (data, { type }) => {
               if (type === 'Internal') {
                 return true
@@ -59,16 +59,14 @@ export const Menu: Field = {
                 return false
               }
             },
-
-
-          }
+          },
         },
         {
           name: 'label',
           type: 'text',
-          required: true
+          required: true,
         },
-      ]
-    }
-  ]
+      ],
+    },
+  ],
 }

@@ -7,6 +7,23 @@
  */
 
 /**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MenuField".
+ */
+export type MenuField =
+  | {
+      type: 'Internal' | 'Custom';
+      openInNewTab?: boolean | null;
+      url?: string | null;
+      internalPage?: {
+        relationTo: 'pages';
+        value: number | Page;
+      } | null;
+      label: string;
+      id?: string | null;
+    }[]
+  | null;
+/**
  * Supported timezones in IANA format.
  *
  * This interface was referenced by `Config`'s JSON-Schema
@@ -547,19 +564,7 @@ export interface Header {
   showBrandName?: boolean | null;
   logo?: (number | null) | Media;
   showLogo?: boolean | null;
-  menu?:
-    | {
-        type: 'Internal' | 'Custom';
-        openInNewTab?: boolean | null;
-        url?: string | null;
-        internalPage?: {
-          relationTo: 'pages';
-          value: number | Page;
-        } | null;
-        label: string;
-        id?: string | null;
-      }[]
-    | null;
+  menu?: MenuField;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -572,19 +577,7 @@ export interface Footer {
   menus?:
     | {
         title?: string | null;
-        menu?:
-          | {
-              type: 'Internal' | 'Custom';
-              openInNewTab?: boolean | null;
-              url?: string | null;
-              internalPage?: {
-                relationTo: 'pages';
-                value: number | Page;
-              } | null;
-              label: string;
-              id?: string | null;
-            }[]
-          | null;
+        menu?: MenuField;
         id?: string | null;
       }[]
     | null;
@@ -613,19 +606,22 @@ export interface HeaderSelect<T extends boolean = true> {
   showBrandName?: T;
   logo?: T;
   showLogo?: T;
-  menu?:
-    | T
-    | {
-        type?: T;
-        openInNewTab?: T;
-        url?: T;
-        internalPage?: T;
-        label?: T;
-        id?: T;
-      };
+  menu?: T | MenuFieldSelect<T>;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MenuField_select".
+ */
+export interface MenuFieldSelect<T extends boolean = true> {
+  type?: T;
+  openInNewTab?: T;
+  url?: T;
+  internalPage?: T;
+  label?: T;
+  id?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -636,16 +632,7 @@ export interface FooterSelect<T extends boolean = true> {
     | T
     | {
         title?: T;
-        menu?:
-          | T
-          | {
-              type?: T;
-              openInNewTab?: T;
-              url?: T;
-              internalPage?: T;
-              label?: T;
-              id?: T;
-            };
+        menu?: T | MenuFieldSelect<T>;
         id?: T;
       };
   updatedAt?: T;
