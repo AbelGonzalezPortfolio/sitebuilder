@@ -1,12 +1,13 @@
 'use client'
 
 import type { Header } from '@/payload-types'
-import { Hamburger, X } from 'lucide-react'
+import { Hamburger, HamburgerIcon, X } from 'lucide-react'
 import { ReactNode, useState } from 'react'
 import Modal from '../Modal'
 import Brand from './Brand'
 
 import MenuItem from './MenuItem'
+import HamburgerMenu from './HamburgerButton'
 
 export default function Menu(headerConfig: Header): ReactNode {
   const [showMenu, setShowMenu] = useState(false)
@@ -14,15 +15,13 @@ export default function Menu(headerConfig: Header): ReactNode {
 
   return (
     <>
-      <div>
-        <button onClick={() => setShowMenu(!showMenu)}>
-          <Hamburger />
-        </button>
-      </div>
+      <button onClick={() => setShowMenu(!showMenu)}>
+        <HamburgerMenu />
+      </button>
       {showMenu && (
         <Modal
           heading={<Brand {...headerConfig} />}
-          closeModal={() => {
+          onModalClose={() => {
             setShowMenu(false)
           }}
           show={showMenu}

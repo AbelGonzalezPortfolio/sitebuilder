@@ -4,7 +4,6 @@ export const Menu: Field = {
   name: 'menu',
   type: 'array',
   label: 'Menu',
-  interfaceName: 'MenuField',
   fields: [
     {
       type: 'row',
