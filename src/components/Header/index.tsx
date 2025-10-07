@@ -12,7 +12,7 @@ export default function Header(headerConfig: Header): ReactNode {
 
   return (
     <header
-      className={`z-100 flex h-[80px] w-full items-center justify-between border-2 px-5 shadow-xl ${showMenu ? '' : ''}`}
+      className={`z-50 flex h-[80px] w-full items-center justify-between border-2 px-5 shadow-xl ${showMenu ? '' : ''}`}
     >
       <Brand {...headerConfig} />
       <HamburgerMenu isActive={showMenu} onClick={() => setShowMenu(!showMenu)} />
