@@ -11,7 +11,7 @@ interface Modal {
 export default function Modal({ onModalClose, show, heading, children }: Modal): ReactNode {
   return (
     <div
-      className={`no-doc-scroll fixed top-0 left-0 z-50 h-screen w-screen bg-white transition ${show ? 'opacity-100' : 'opacity-0'} `}
+      className={`no-doc-scroll fixed top-18 left-0 z-50 h-screen w-screen bg-white transition ${show ? 'opacity-100' : 'opacity-0'} `}
     >
       <div className="flex h-14 items-center justify-between px-5">
         {heading}

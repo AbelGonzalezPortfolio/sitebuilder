@@ -16,7 +16,7 @@ export default function Menu(headerConfig: Header): ReactNode {
   return (
     <>
       <button onClick={() => setShowMenu(!showMenu)}>
-        <HamburgerMenu />
+        <HamburgerMenu isActive={showMenu} />
       </button>
       {showMenu && (
         <Modal
